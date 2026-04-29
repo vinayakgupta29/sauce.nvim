@@ -1,10 +1,10 @@
-(movie_name) @title
+(movie_name) @sauce.title
 
-(cast_name) @character
-(cast_list_item) @character
+(cast_name) @sauce.cast
+(cast_list_item) @sauce.cast
 
-(category) @string
-(timestamp) @number
+(category) @sauce.category
+(timestamp) @sauce.time
 
 "|" @operator
 "," @punctuation.delimiter
