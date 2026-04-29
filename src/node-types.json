@@ -1,0 +1,244 @@
+[
+  {
+    "type": "cast_field",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "cast_list",
+          "named": true
+        },
+        {
+          "type": "cast_name",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "cast_list",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "cast_list_item",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "cast_list_item",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "cast_name",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "cast_record",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "cast_field",
+          "named": true
+        },
+        {
+          "type": "category_section",
+          "named": true
+        },
+        {
+          "type": "timestamp_list",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "category",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "category_record",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "category_section",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "category_section",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "category",
+          "named": true
+        },
+        {
+          "type": "category_section",
+          "named": true
+        },
+        {
+          "type": "timestamp_list",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "entry",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "movie_name",
+          "named": true
+        },
+        {
+          "type": "record_body",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "movie_name",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "placeholder_record",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": false,
+      "types": [
+        {
+          "type": "category_section",
+          "named": true
+        },
+        {
+          "type": "timestamp_list",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "record_body",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "cast_record",
+          "named": true
+        },
+        {
+          "type": "category_record",
+          "named": true
+        },
+        {
+          "type": "placeholder_record",
+          "named": true
+        },
+        {
+          "type": "timestamp_list",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "source_file",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": false,
+      "types": [
+        {
+          "type": "entry",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "timestamp_list",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": false,
+      "types": [
+        {
+          "type": "timestamp",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": ",",
+    "named": false
+  },
+  {
+    "type": ";",
+    "named": false
+  },
+  {
+    "type": "[",
+    "named": false
+  },
+  {
+    "type": "]",
+    "named": false
+  },
+  {
+    "type": "timestamp",
+    "named": true
+  },
+  {
+    "type": "{",
+    "named": false
+  },
+  {
+    "type": "|",
+    "named": false
+  },
+  {
+    "type": "}",
+    "named": false
+  }
+]

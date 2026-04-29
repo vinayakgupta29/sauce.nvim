@@ -1,0 +1,40 @@
+{
+  "name": "tree-sitter-saucelang",
+  "version": "0.0.1",
+  "main": "grammar.js",
+  "types": "bindings/node",
+  "devDependencies": {
+    "tree-sitter-cli": "^0.22.0",
+    "prebuildify": "^6.0.0"
+  },
+  "scripts": {
+    "generate": "tree-sitter generate",
+    "install": "node-gyp-build",
+    "prebuildify": "prebuildify --napi --strip"
+  },
+  "dependencies": {
+    "node-gyp-build": "^4.8.0"
+  },
+  "peerDependencies": {
+    "tree-sitter": "^0.21.0"
+  },
+  "peerDependenciesMeta": {
+    "tree_sitter": {
+      "optional": true
+    }
+  },
+  "files": [
+    "grammar.js",
+    "binding.gyp",
+    "prebuilds/**",
+    "bindings/node/*",
+    "queries/*",
+    "src/**"
+  ],
+  "tree-sitter": [
+    {
+      "scope": "source.saucelang",
+      "injection-regex": "^saucelang$"
+    }
+  ]
+}
