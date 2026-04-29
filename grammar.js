@@ -1,7 +1,10 @@
 module.exports = grammar({
   name: 'saucelang',
 
-  extras: $ => [/\s/],
+  extras: $ => [
+    /\s/,
+    $.comment,
+  ],
 
   rules: {
     source_file: $ => repeat(seq($.entry, optional(','))),
@@ -73,6 +76,7 @@ module.exports = grammar({
       )),
       ']'
     ),
+    comment: $ => token(seq('//', repeat(choice(/[^/]/, /\/[^/]/)), '//')),
 
     movie_name: $ => token(/[^\s\{\}\[\]\|;,][^\{\}\[\]\|;,]*/),
     _text: $ => token(/[^\s\{\}\[\]\|;,][^\{\}\[\]\|;,]*/),

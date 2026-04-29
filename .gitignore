@@ -1,41 +1,38 @@
-# Compiled Lua sources
-luac.out
+# Rust artifacts
+Cargo.lock
+target/
 
-# luarocks build files
-*.src.rock
-*.zip
-*.tar.gz
+# Node artifacts
+build/
+prebuilds/
+node_modules/
+*.tgz
 
-# Object files
-*.o
-*.os
-*.ko
-*.obj
-*.elf
+# Swift artifacts
+.build/
 
-# Precompiled Headers
-*.gch
-*.pch
+# Go artifacts
+go.sum
+_obj/
 
-# Libraries
-*.lib
+# Python artifacts
+.venv/
+dist/
+*.egg-info
+*.whl
+
+# C artifacts
 *.a
-*.la
-*.lo
-*.def
-*.exp
-
-# Shared objects (inc. Windows DLLs)
-*.dll
 *.so
 *.so.*
 *.dylib
+*.dll
+*.pc
 
-# Executables
-*.exe
-*.out
-*.app
-*.i*86
-*.x86_64
-*.hex
-node_modules
+# Example dirs
+/examples/*/
+
+# Grammar volatiles
+*.wasm
+*.obj
+*.o
