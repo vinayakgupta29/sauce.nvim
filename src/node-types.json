@@ -110,6 +110,11 @@
     }
   },
   {
+    "type": "comment",
+    "named": true,
+    "fields": {}
+  },
+  {
     "type": "entry",
     "named": true,
     "fields": {},
@@ -214,6 +219,10 @@
     "named": false
   },
   {
+    "type": "//",
+    "named": false
+  },
+  {
     "type": ";",
     "named": false
   },
@@ -224,10 +233,6 @@
   {
     "type": "]",
     "named": false
-  },
-  {
-    "type": "comment",
-    "named": true
   },
   {
     "type": "timestamp",

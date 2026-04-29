@@ -76,8 +76,11 @@ module.exports = grammar({
       )),
       ']'
     ),
-    comment: $ => token(seq('//', repeat(choice(/[^/]/, /\/[^/]/)), '//')),
-
+    comment: $ => seq(
+      '//',
+      repeat(choice(/[^/]/, /\/[^/]/)),
+      '//'
+    ),
     movie_name: $ => token(/[^\s\{\}\[\]\|;,][^\{\}\[\]\|;,]*/),
     _text: $ => token(/[^\s\{\}\[\]\|;,][^\{\}\[\]\|;,]*/),
     timestamp: $ => token(/[^\s\[\]\|;][^\[\]\|;]*/)
