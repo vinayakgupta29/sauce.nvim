@@ -109,4 +109,30 @@ clean:
 test:
 	$(TS) test
 
+# --------------------------------------------------------------------
+# Neovim parser
+# --------------------------------------------------------------------
+
+NVIM_PARSER_DIR := parser
+
+ifeq ($(OS),Windows_NT)
+NVIM_EXT := dll
+NVIM_LDFLAGS := -shared
+else ifeq ($(shell uname),Darwin)
+NVIM_EXT := dylib
+NVIM_LDFLAGS := -dynamiclib
+else
+NVIM_EXT := so
+NVIM_LDFLAGS := -shared
+endif
+
+nvim:
+	mkdir -p $(NVIM_PARSER_DIR)
+	$(CC) \
+		-I./src \
+		-fPIC \
+		$(NVIM_LDFLAGS) \
+		src/parser.c \
+		-o $(NVIM_PARSER_DIR)/saucelang.$(NVIM_EXT)
+
 .PHONY: all install uninstall clean test
