@@ -10,9 +10,9 @@ local function parser_extension()
   end
 end
 
-local function ensure_parser_installed()
-  local plugin = debug.getinfo(1, "S").source:sub(2)
-  plugin = vim.fs.dirname(vim.fs.dirname(plugin))
+local function ensure_parser_installed(plugin)
+  --  local plugin = debug.getinfo(1, "S").source:sub(2)
+  -- plugin = vim.fs.dirname(vim.fs.dirname(plugin))
 
   local ext = parser_extension()
   local parser = plugin .. "/parser/saucelang." .. ext
@@ -36,14 +36,19 @@ local function ensure_parser_installed()
   return vim.uv.fs_stat(parser) ~= nil
 end
 
-function M.setup()
+function M.setup(opts)
+  opts = opts or {}
+  local plugin = opts.plugin_dir or vim.fs.normalize(
+    vim.fs.joinpath(vim.fs.dirname(debug.getinfo(1, "S").source:sub(2)), "..", "..")
+  )
+
   vim.filetype.add({
     filename = {
       ["sauce.txt"] = "saucelang",
     },
   })
 
-  ensure_parser_installed()
+  ensure_parser_installed(plugin)
 end
 
 return M
