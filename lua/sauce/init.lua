@@ -2,7 +2,7 @@ local M = {}
 
 function M.setup()
   -- register parser
-  local parser_config = require("nvim-treesitter.parsers")
+  local parser_config = require("nvim-treesitter.parsers").get_parser_configs()
 
   parser_config.saucelang = {
     install_info = {
@@ -21,4 +21,3 @@ function M.setup()
 end
 
 return M
-
