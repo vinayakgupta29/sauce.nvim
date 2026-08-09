@@ -54,6 +54,12 @@ function M.setup(opts)
   })
 
   vim.treesitter.language.register("saucelang", "saucelang")
+  vim.api.nvim_create_autocmd("FileType", {
+  pattern = "saucelang",
+  callback = function(args)
+    vim.treesitter.start(args.buf, "saucelang")
+  end,
+})
 end
 
 return M
