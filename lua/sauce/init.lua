@@ -49,6 +49,11 @@ function M.setup(opts)
   })
 
   ensure_parser_installed(plugin)
+  vim.treesitter.language.add("saucelang", {
+    path = plugin .. "/parser/saucelang." .. parser_extension(),
+  })
+
+  vim.treesitter.language.register("saucelang", "saucelang")
 end
 
 return M
