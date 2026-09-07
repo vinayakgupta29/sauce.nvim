@@ -36,11 +36,16 @@ Movie Title { [Cast List | Actor] ; Category1 ; Category2 ; [Timestamps] }
 | **Comments** | Wrapped with `//` | `// My media notes //` | — |
 
 ---
+> [!Note]
+> This Data should have 1 entry per line but the examples here are multiline due to them being AI generated
 
 ### Example `sauce.txt`
 
 ```text
 // Highly recommended sci-fi movies //
+
+// One liner Example
+Interstellar { Matthew McConaughey; Sci-Fi; Adventure; Drama; [00:45:12; 01:32:00; 02:41:20]},
 
 Interstellar {
   Matthew McConaughey;
@@ -56,13 +61,14 @@ Inception {
 
 // Entry with no cast specified, only categories and timestamps //
 Fight Club {
-  ;
+  $;
   Psychological Thriller; Drama;
   [00:30:15; 01:15:45]
 },
 
 // Quick bookmark with just title and timestamp list //
 The Matrix {
+    $;
   [00:25:00; 01:40:15]
 },
 
