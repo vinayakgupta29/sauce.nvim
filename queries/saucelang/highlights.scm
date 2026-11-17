@@ -6,7 +6,7 @@
 (category) @sauce.category
 (timestamp) @sauce.time
 
-(comment) @comment
+(comment) @sauce.comment
 
 "|" @operator
 "," @punctuation.delimiter
