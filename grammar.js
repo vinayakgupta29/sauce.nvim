@@ -2,12 +2,16 @@ module.exports = grammar({
   name: 'saucelang',
 
   extras: $ => [
-    /\s/,
+    /[ \t]/,
     $.comment,
   ],
 
   rules: {
-    source_file: $ => repeat(seq($.entry, optional(','))),
+    source_file: $ => repeat(choice(
+      $.entry,
+      ',',
+      /\r?\n/
+    )),
 
     entry: $ => seq(
       $.movie_name,
@@ -76,15 +80,76 @@ module.exports = grammar({
       )),
       ']'
     ),
+
     comment: $ => token(
       seq(
         '//',
-        /[\s\S]*/,
+        repeat(choice(/[^/]/, /\/[^/]/)),
         '//'
       )
     ),
-    movie_name: $ => token(/[^\s\{\}\[\]\|;,][^\{\}\[\]\|;,]*/),
-    _text: $ => token(/[^\s\{\}\[\]\|;,][^\{\}\[\]\|;,]*/),
-    timestamp: $ => token(/[^\s\[\]\|;][^\[\]\|;]*/)
+
+    movie_name: $ => token(choice(
+      seq(
+        choice(
+          /[^\s\{\}\[\]\|;,/]/,
+          seq('/', /[^\s\{\}\[\]\|;,/]/)
+        ),
+        repeat(choice(
+          /[^\r\n\{\}\[\]\|;,/]/,
+          seq('/', /[^\r\n\{\}\[\]\|;,/]/)
+        )),
+        choice(
+          /[^\s\{\}\[\]\|;,/]/,
+          seq('/', /[^\s\{\}\[\]\|;,/]/)
+        )
+      ),
+      choice(
+        /[^\s\{\}\[\]\|;,/]/,
+        seq('/', /[^\s\{\}\[\]\|;,/]/)
+      )
+    )),
+
+    _text: $ => token(choice(
+      seq(
+        choice(
+          /[^\s\{\}\[\]\|;,/]/,
+          seq('/', /[^\s\{\}\[\]\|;,/]/)
+        ),
+        repeat(choice(
+          /[^\r\n\{\}\[\]\|;,/]/,
+          seq('/', /[^\r\n\{\}\[\]\|;,/]/)
+        )),
+        choice(
+          /[^\s\{\}\[\]\|;,/]/,
+          seq('/', /[^\s\{\}\[\]\|;,/]/)
+        )
+      ),
+      choice(
+        /[^\s\{\}\[\]\|;,/]/,
+        seq('/', /[^\s\{\}\[\]\|;,/]/)
+      )
+    )),
+
+    timestamp: $ => token(choice(
+      seq(
+        choice(
+          /[^\s\[\]\|;/]/,
+          seq('/', /[^\s\[\]\|;/]/)
+        ),
+        repeat(choice(
+          /[^\r\n\[\]\|;/]/,
+          seq('/', /[^\r\n\[\]\|;/]/)
+        )),
+        choice(
+          /[^\s\[\]\|;/]/,
+          seq('/', /[^\s\[\]\|;/]/)
+        )
+      ),
+      choice(
+        /[^\s\[\]\|;/]/,
+        seq('/', /[^\s\[\]\|;/]/)
+      )
+    ))
   }
 });
